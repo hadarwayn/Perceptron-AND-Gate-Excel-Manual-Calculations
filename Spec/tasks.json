@@ -1,0 +1,481 @@
+{
+  "project_name": "L29-Perceptron-AND-Gate-Excel",
+  "description": "FUN, colorful, visual Excel file teaching Perceptron Learning Algorithm",
+  "design_philosophy": "If a 15-year-old can't understand it in 30 seconds, we need more colors!",
+  "total_estimated_hours": 4.0,
+  "created_date": "2026-01-13",
+  "version": "2.0",
+  
+  "phases": [
+    {
+      "phase": "1_setup",
+      "description": "Project structure and environment setup",
+      "estimated_hours": 0.5,
+      "tasks": [
+        {
+          "id": "1.1",
+          "name": "Create directory structure",
+          "priority": "critical",
+          "estimated_hours": 0.25,
+          "dependencies": [],
+          "files_to_create": [
+            "README.md",
+            "create_excel.py",
+            "create_visualizations.py",
+            "requirements.txt",
+            ".gitignore",
+            "venv/.gitkeep",
+            "results/graphs/.gitkeep"
+          ],
+          "description": "Create project folders for code, docs, and visual results"
+        },
+        {
+          "id": "1.2",
+          "name": "Set up virtual environment with UV",
+          "priority": "critical",
+          "estimated_hours": 0.25,
+          "dependencies": ["1.1"],
+          "commands": [
+            "uv venv",
+            "source .venv/bin/activate",
+            "uv pip install openpyxl matplotlib numpy"
+          ],
+          "description": "Create virtual environment and install dependencies"
+        }
+      ]
+    },
+    
+    {
+      "phase": "2_excel_creation",
+      "description": "Create the colorful, educational Excel file",
+      "estimated_hours": 1.75,
+      "tasks": [
+        {
+          "id": "2.1",
+          "name": "Create welcome section with title and instructions",
+          "priority": "critical",
+          "estimated_hours": 0.15,
+          "dependencies": ["1.2"],
+          "excel_location": "A1:H3",
+          "colors": ["blue_header"],
+          "description": "Big welcoming title with emoji, brief explanation of what this file does"
+        },
+        {
+          "id": "2.2",
+          "name": "Create AND truth table with plain English explanations",
+          "priority": "critical",
+          "estimated_hours": 0.2,
+          "dependencies": ["2.1"],
+          "excel_location": "A5:F10",
+          "colors": ["purple_inputs", "blue_header"],
+          "features": [
+            "4 training samples with x0, x1, x2, Output",
+            "Extra column: Plain English (OFF+OFF=OFF, etc.)",
+            "Note explaining x0 is bias (always 1)"
+          ],
+          "description": "Truth table that a 15-year-old can read and understand"
+        },
+        {
+          "id": "2.3",
+          "name": "Create initial weights section with experiment prompt",
+          "priority": "critical",
+          "estimated_hours": 0.15,
+          "dependencies": ["2.2"],
+          "excel_location": "A12:D16",
+          "colors": ["yellow_weights"],
+          "features": [
+            "Editable yellow cells for W0=3, W1=3, W2=3",
+            "Labels explaining what each weight controls",
+            "Big prompt: CHANGE THESE TO EXPERIMENT!"
+          ],
+          "description": "Interactive section where students can modify starting weights"
+        },
+        {
+          "id": "2.4",
+          "name": "Create formula documentation row",
+          "priority": "high",
+          "estimated_hours": 0.15,
+          "dependencies": ["2.3"],
+          "excel_location": "Row 19",
+          "colors": ["light_blue_docs"],
+          "description": "Light blue row showing exact Excel formula for each column - no secrets!"
+        },
+        {
+          "id": "2.5",
+          "name": "Create learning history table headers with groupings",
+          "priority": "critical",
+          "estimated_hours": 0.2,
+          "dependencies": ["2.4"],
+          "excel_location": "A18:Q20",
+          "colors": ["blue_header"],
+          "features": [
+            "Group header: INPUTS (purple)",
+            "Group header: CURRENT WEIGHTS (yellow)",
+            "Group header: CALCULATION (orange)",
+            "Group header: DECISION (blue)",
+            "Group header: NEW WEIGHTS (yellow)",
+            "Group header: RESULT (green/red)"
+          ],
+          "description": "Two-row header with category groupings and individual column names"
+        },
+        {
+          "id": "2.6",
+          "name": "Generate 20 iteration rows with live formulas",
+          "priority": "critical",
+          "estimated_hours": 0.4,
+          "dependencies": ["2.5"],
+          "excel_location": "A21:Q40",
+          "features": [
+            "Column A: Iteration number (1-20)",
+            "Column B: Sample number (1-4 cycling)",
+            "Columns C-E: x0, x1, x2 via INDEX formula",
+            "Column F: Actual output via INDEX formula",
+            "Columns G-I: Current weights (from previous row or initial)",
+            "Column J: Z (Dot Product) = G*C + H*D + I*E",
+            "Column K: Predicted = IF(J>0, 1, 0)",
+            "Column L: Error = F - K",
+            "Column M: Status text (CORRECT/INCORRECT)",
+            "Columns N-P: New weights using learning rule",
+            "Column Q: Visual indicator (✅ or ❌)"
+          ],
+          "description": "The main learning table with all calculations visible"
+        },
+        {
+          "id": "2.7",
+          "name": "Apply conditional formatting and colors to iteration rows",
+          "priority": "high",
+          "estimated_hours": 0.2,
+          "dependencies": ["2.6"],
+          "features": [
+            "Purple background for input columns (C-E)",
+            "Yellow background for weight columns (G-I, N-P)",
+            "Orange background for calculation column (J)",
+            "Green row highlight when Status = CORRECT",
+            "Red/pink row highlight when Status = INCORRECT",
+            "Bold status text"
+          ],
+          "description": "Make the table visually scannable with color coding"
+        },
+        {
+          "id": "2.8",
+          "name": "Create learning summary section",
+          "priority": "high",
+          "estimated_hours": 0.15,
+          "dependencies": ["2.7"],
+          "excel_location": "A42:G48",
+          "features": [
+            "Trophy emoji in title",
+            "Total iterations count",
+            "Correct count with green cell",
+            "Incorrect count with red cell",
+            "Final weights prominently displayed",
+            "Uses COUNTIF to calculate automatically"
+          ],
+          "description": "Summary statistics showing how well the perceptron learned"
+        },
+        {
+          "id": "2.9",
+          "name": "Create 'How It Works' explanation section",
+          "priority": "high",
+          "estimated_hours": 0.15,
+          "dependencies": ["2.8"],
+          "excel_location": "A50:H65",
+          "features": [
+            "Step 1: Calculate (voting analogy)",
+            "Step 2: Decide (light switch analogy)",
+            "Step 3: Learn (adjust priorities analogy)",
+            "Bullet points with plain English",
+            "No jargon - all analogies"
+          ],
+          "description": "Plain English explanation of the perceptron algorithm"
+        }
+      ]
+    },
+    
+    {
+      "phase": "3_visualizations",
+      "description": "Create educational graphs and diagrams",
+      "estimated_hours": 1.0,
+      "tasks": [
+        {
+          "id": "3.1",
+          "name": "Create perceptron architecture diagram",
+          "priority": "high",
+          "estimated_hours": 0.25,
+          "dependencies": ["2.9"],
+          "output_file": "results/graphs/perceptron_diagram.png",
+          "features": [
+            "Show 3 inputs (x0, x1, x2) as circles",
+            "Show weights on connections",
+            "Show summation node (Σ)",
+            "Show activation (step function)",
+            "Show output",
+            "Color coded to match Excel"
+          ],
+          "description": "Visual diagram showing perceptron structure"
+        },
+        {
+          "id": "3.2",
+          "name": "Create decision boundary plot",
+          "priority": "high",
+          "estimated_hours": 0.25,
+          "dependencies": ["3.1"],
+          "output_file": "results/graphs/decision_boundary.png",
+          "features": [
+            "2D plot with x1 and x2 axes",
+            "Plot 4 AND gate points",
+            "Different colors/shapes for 0 vs 1 output",
+            "Draw the decision line",
+            "Clear title and legend",
+            "Show that (1,1) is separated from others"
+          ],
+          "description": "Visual proof that the perceptron can solve AND"
+        },
+        {
+          "id": "3.3",
+          "name": "Create weight evolution chart",
+          "priority": "high",
+          "estimated_hours": 0.25,
+          "dependencies": ["3.2"],
+          "output_file": "results/graphs/weight_evolution.png",
+          "features": [
+            "Line chart with iterations on X axis",
+            "3 lines for W0, W1, W2",
+            "Different colors for each weight",
+            "Shows how weights change over time",
+            "Clear legend",
+            "Grid for readability"
+          ],
+          "description": "Shows the learning progression as weights converge"
+        },
+        {
+          "id": "3.4",
+          "name": "Create learning progress bar chart",
+          "priority": "medium",
+          "estimated_hours": 0.25,
+          "dependencies": ["3.3"],
+          "output_file": "results/graphs/learning_progress.png",
+          "features": [
+            "Bar chart showing errors per epoch",
+            "Epoch numbers on X axis",
+            "Error count on Y axis",
+            "Green/red colors for visual impact",
+            "Shows errors decreasing over time"
+          ],
+          "description": "Visual proof that learning reduces errors"
+        }
+      ]
+    },
+    
+    {
+      "phase": "4_documentation",
+      "description": "Create fun, visual README with screenshots",
+      "estimated_hours": 0.75,
+      "tasks": [
+        {
+          "id": "4.1",
+          "name": "Write intro section with fun explanation",
+          "priority": "critical",
+          "estimated_hours": 0.15,
+          "dependencies": ["3.4"],
+          "readme_sections": [
+            "🎮 What Is This?",
+            "Fun hook to grab attention",
+            "Real-world analogy (teaching a robot)",
+            "What you'll learn"
+          ],
+          "description": "Engaging introduction that makes reader want to continue"
+        },
+        {
+          "id": "4.2",
+          "name": "Write perceptron explanation with diagram",
+          "priority": "critical",
+          "estimated_hours": 0.15,
+          "dependencies": ["4.1"],
+          "readme_sections": [
+            "🧠 Meet the Perceptron",
+            "Include perceptron_diagram.png",
+            "ASCII art backup",
+            "Explain each component with analogies"
+          ],
+          "description": "Visual explanation of perceptron architecture"
+        },
+        {
+          "id": "4.3",
+          "name": "Write AND gate section with truth table",
+          "priority": "high",
+          "estimated_hours": 0.1,
+          "dependencies": ["4.2"],
+          "readme_sections": [
+            "📊 The AND Gate - Our Training Data",
+            "Truth table in markdown",
+            "Real-world example (two switches)",
+            "Why this is a good first problem"
+          ],
+          "description": "Clear explanation of what we're training the perceptron to do"
+        },
+        {
+          "id": "4.4",
+          "name": "Write learning section with Excel screenshots",
+          "priority": "critical",
+          "estimated_hours": 0.15,
+          "dependencies": ["4.3"],
+          "readme_sections": [
+            "🎬 Watch It Learn!",
+            "Screenshot of Excel main table",
+            "Annotated walkthrough of iteration 1",
+            "Before/after comparison"
+          ],
+          "description": "Show the Excel file in action with annotations"
+        },
+        {
+          "id": "4.5",
+          "name": "Write results section with all graphs",
+          "priority": "high",
+          "estimated_hours": 0.1,
+          "dependencies": ["4.4"],
+          "readme_sections": [
+            "📈 Results & Visualizations",
+            "Include all 4 graphs",
+            "Brief explanation of each",
+            "Key insights highlighted"
+          ],
+          "description": "Visual proof that the perceptron works"
+        },
+        {
+          "id": "4.6",
+          "name": "Write installation and usage instructions",
+          "priority": "critical",
+          "estimated_hours": 0.1,
+          "dependencies": ["4.5"],
+          "readme_sections": [
+            "🔧 Try It Yourself!",
+            "Step-by-step installation",
+            "How to generate the Excel",
+            "Experiments to try (different weights)"
+          ],
+          "description": "Clear instructions for running the project"
+        }
+      ]
+    },
+    
+    {
+      "phase": "5_testing",
+      "description": "Verify everything works and looks great",
+      "estimated_hours": 0.5,
+      "tasks": [
+        {
+          "id": "5.1",
+          "name": "Generate Excel file and verify formulas",
+          "priority": "critical",
+          "estimated_hours": 0.15,
+          "dependencies": ["4.6"],
+          "tests": [
+            "Excel opens without errors",
+            "All formulas calculate correctly",
+            "Colors display properly",
+            "Changing initial weights updates everything"
+          ],
+          "description": "Ensure Excel file works correctly"
+        },
+        {
+          "id": "5.2",
+          "name": "Generate all graphs and verify quality",
+          "priority": "critical",
+          "estimated_hours": 0.1,
+          "dependencies": ["5.1"],
+          "tests": [
+            "All 4 PNG files created",
+            "Images are clear and readable",
+            "Colors match Excel color scheme",
+            "Labels and legends are visible"
+          ],
+          "description": "Ensure visualizations are high quality"
+        },
+        {
+          "id": "5.3",
+          "name": "Apply the 15-year-old test",
+          "priority": "high",
+          "estimated_hours": 0.15,
+          "dependencies": ["5.2"],
+          "tests": [
+            "Read README - is it engaging?",
+            "Open Excel - can you follow the process?",
+            "Look at graphs - do they make sense?",
+            "Would a 15-year-old understand this?"
+          ],
+          "description": "Final review from a beginner's perspective"
+        },
+        {
+          "id": "5.4",
+          "name": "Take screenshots for README",
+          "priority": "medium",
+          "estimated_hours": 0.1,
+          "dependencies": ["5.3"],
+          "outputs": [
+            "results/graphs/excel_main_table.png",
+            "results/graphs/excel_summary.png"
+          ],
+          "description": "Capture Excel screenshots for documentation"
+        }
+      ]
+    }
+  ],
+  
+  "file_structure": {
+    "root": [
+      "README.md",
+      "create_excel.py",
+      "create_visualizations.py",
+      "requirements.txt",
+      ".gitignore"
+    ],
+    "venv": [".gitkeep"],
+    "docs": ["PRD.md", "tasks.json"],
+    "results": ["Perceptron_AND_Gate_Learning.xlsx"],
+    "results/graphs": [
+      "perceptron_diagram.png",
+      "decision_boundary.png",
+      "weight_evolution.png",
+      "learning_progress.png"
+    ]
+  },
+  
+  "color_scheme": {
+    "blue_header": {"hex": "#4472C4", "rgb": [68, 114, 196], "use": "Headers, titles"},
+    "yellow_weights": {"hex": "#FFF2CC", "rgb": [255, 242, 204], "use": "Weight columns"},
+    "purple_inputs": {"hex": "#E2D0F8", "rgb": [226, 208, 248], "use": "Input columns"},
+    "green_correct": {"hex": "#C6EFCE", "rgb": [198, 239, 206], "use": "Correct status"},
+    "red_incorrect": {"hex": "#FFC7CE", "rgb": [255, 199, 206], "use": "Incorrect status"},
+    "light_blue_docs": {"hex": "#DEEBF7", "rgb": [222, 235, 247], "use": "Formula rows"},
+    "orange_calc": {"hex": "#FCE4D6", "rgb": [252, 228, 214], "use": "Calculations"}
+  },
+  
+  "success_criteria": {
+    "excel": [
+      "Opens in Excel/LibreOffice/Google Sheets",
+      "All formulas work correctly",
+      "Changing weights updates all cells",
+      "Color coding is clear and consistent",
+      "A 15-year-old can follow the process"
+    ],
+    "readme": [
+      "Contains at least 4 images",
+      "Uses emojis and engaging formatting",
+      "Explains concepts with analogies",
+      "Has clear step-by-step instructions"
+    ],
+    "graphs": [
+      "All 4 graphs generated",
+      "Clear labels and legends",
+      "Consistent color scheme",
+      "Readable at normal size"
+    ],
+    "educational": [
+      "Student understands perceptron structure",
+      "Student can trace through one iteration",
+      "Student knows what weights do",
+      "Student wants to experiment!"
+    ]
+  }
+}

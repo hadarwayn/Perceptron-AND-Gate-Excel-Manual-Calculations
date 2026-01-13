@@ -1,0 +1,33 @@
+# Virtual Environments - DO NOT commit actual venv
+.venv/
+env/
+.uv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Logs
+logs/*.log
+!logs/config/
+!logs/.gitkeep
+
+# Temporary files
+*.tmp
+*.temp
+tmpclaude-*

@@ -1,0 +1,9 @@
+# Excel file creation
+openpyxl==3.1.2
+
+# Visualization
+matplotlib==3.8.2
+numpy==1.26.2
+
+# For nice looking graphs
+seaborn==0.13.0
