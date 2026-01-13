@@ -324,8 +324,12 @@ Solution: Run `uv pip install matplotlib numpy` first
 ## Contact & Support
 
 **Course:** AI Developer Expert - Lesson 29
+
 **Project:** L29-Perceptron-AND-Gate-Excel
+
 **Version:** 2.0
+
+**Builder:** Hadar Wayn
 
 ---
 
