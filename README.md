@@ -4,6 +4,16 @@
 
 ---
 
+## Quick Start - Get the Excel File!
+
+> **The main Excel file is located in the [`results/`](results/) folder:**
+>
+> **[`results/Perceptron_AND_Gate_Learning.xlsx`](results/Perceptron_AND_Gate_Learning.xlsx)**
+>
+> Download it, open in Excel, and start experimenting!
+
+---
+
 ## What Is This?
 
 Imagine teaching a robot to recognize when **BOTH** light switches are ON. That's what the AND gate does!
@@ -55,6 +65,86 @@ The AND gate is like two light switches in a row - the light only turns ON when 
 | 1 (ON)  | 1 (ON)  | **1 (ON)** | **BOTH switches are on!** |
 
 **Real-world example:** Your phone unlocks only when you enter the correct PIN **AND** your finger is on the sensor.
+
+---
+
+## The Excel File - Screenshots & Walkthrough
+
+> **Location:** [`results/Perceptron_AND_Gate_Learning.xlsx`](results/Perceptron_AND_Gate_Learning.xlsx)
+
+### Screenshot 1: Welcome & Truth Table Section
+
+![Excel Screenshot 1 - Welcome Section](results/graphs/excel_screenshot_1.png)
+
+*Paste your screenshot here showing the top of the Excel file*
+
+**What this shows:**
+- **Row 1**: The welcome header with the title
+- **Rows 4-9**: The AND gate truth table - these are the 4 training examples the perceptron will learn from
+- **Color coding**: Purple cells = inputs, Blue headers = section titles
+
+---
+
+### Screenshot 2: Initial Weights (The Yellow Cells!)
+
+![Excel Screenshot 2 - Initial Weights](results/graphs/excel_screenshot_2.png)
+
+*Paste your screenshot here showing the initial weights section*
+
+**What this shows:**
+- **Yellow cells (C13, C14, C15)**: These are the starting weights W0, W1, W2
+- **CHANGE THESE** to experiment! The entire spreadsheet will recalculate!
+- Default values: W0=3, W1=3, W2=3
+
+**Try these experiments:**
+| W0 | W1 | W2 | What happens? |
+|----|----|----|---------------|
+| 3  | 3  | 3  | Default - learns quickly |
+| 0  | 0  | 0  | Starts neutral - takes longer |
+| -1 | -1 | -1 | Starts negative - different path |
+
+---
+
+### Screenshot 3: The Learning Table (Main Section)
+
+![Excel Screenshot 3 - Learning Table](results/graphs/excel_screenshot_3.png)
+
+*Paste your screenshot here showing the main learning iterations table*
+
+**What this shows:**
+- **20 rows** of learning iterations
+- **Each row** shows one training step:
+  - **Purple columns (C-E)**: Input values x0, x1, x2
+  - **Yellow columns (G-I)**: Current weights before this step
+  - **Orange column (J)**: The dot product Z = W*X calculation
+  - **Column K**: Predicted output (0 or 1)
+  - **Column L**: Error (Actual - Predicted)
+  - **Column M**: Status (CORRECT or WRONG)
+  - **Yellow columns (N-P)**: New weights after learning
+  - **Column Q**: Visual indicator (V = correct, X = wrong)
+
+**How to read it:**
+1. Look at row 20 (iteration 1)
+2. Inputs come from sample 1 of truth table: x0=1, x1=0, x2=0
+3. Starting weights: W0=3, W1=3, W2=3
+4. Calculation: Z = 3*1 + 3*0 + 3*0 = 3
+5. Since Z > 0, Predicted = 1
+6. But Actual = 0, so Error = 0 - 1 = -1 (WRONG!)
+7. Weights update to fix this mistake
+
+---
+
+### Screenshot 4: Summary Section
+
+![Excel Screenshot 4 - Summary](results/graphs/excel_screenshot_4.png)
+
+*Paste your screenshot here showing the summary section at the bottom*
+
+**What this shows:**
+- **Total iterations**: 20
+- **Correct count** (green): How many times the perceptron got it right
+- **Wrong count** (red): How many mistakes were made
+- **Final weights**: The learned W0, W1, W2 values after training
 
 ---
 
@@ -171,16 +261,19 @@ uv pip install -r requirements.txt
 ```bash
 python create_excel.py
 ```
-This creates `results/Perceptron_AND_Gate_Learning.xlsx`
+This creates the Excel file in: **[`results/Perceptron_AND_Gate_Learning.xlsx`](results/Perceptron_AND_Gate_Learning.xlsx)**
 
 ### Generate the Visualizations
 ```bash
 python create_visualizations.py
 ```
-This creates 4 PNG files in `results/graphs/`
+This creates 4 PNG files in **[`results/graphs/`](results/graphs/)**
 
 ### Open the Excel File
-1. Open `results/Perceptron_AND_Gate_Learning.xlsx` in Excel
+
+> **Remember: The Excel file is in the [`results/`](results/) folder!**
+
+1. Open **[`results/Perceptron_AND_Gate_Learning.xlsx`](results/Perceptron_AND_Gate_Learning.xlsx)** in Excel
 2. Look at the colorful learning table
 3. **Try changing the yellow cells (W0, W1, W2)** and watch everything update!
 
@@ -210,8 +303,8 @@ L29/
 │   ├── PRD.md                   # Requirements document
 │   ├── tasks.json               # Implementation tasks
 │   └── PROJECT_GUIDELINES.md    # Coding standards
-└── results/
-    ├── Perceptron_AND_Gate_Learning.xlsx  # The star of the show!
+└── results/                     # ⭐ THE EXCEL FILE IS HERE! ⭐
+    ├── Perceptron_AND_Gate_Learning.xlsx  # ⭐ The star of the show!
     └── graphs/
         ├── perceptron_diagram.png
         ├── decision_boundary.png
