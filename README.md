@@ -73,28 +73,13 @@ The AND gate is like two light switches in a row - the light only turns ON when 
 > **Location:** [`results/Perceptron_AND_Gate_Learning.xlsx`](results/Perceptron_AND_Gate_Learning.xlsx)
 
 ### Screenshot 1: Welcome & Truth Table Section
-
-![Excel Screenshot 1 - Welcome Section](results/graphs/excel_screenshot_1.png)
-
-*Paste your screenshot here showing the top of the Excel file*
-
-**What this shows:**
-- **Row 1**: The welcome header with the title
-- **Rows 4-9**: The AND gate truth table - these are the 4 training examples the perceptron will learn from
-- **Color coding**: Purple cells = inputs, Blue headers = section titles
+<img width="483" height="160" alt="image" src="https://github.com/user-attachments/assets/333a4447-2513-41b1-8db4-7f004f874188" />
 
 ---
 
 ### Screenshot 2: Initial Weights (The Yellow Cells!)
+<img width="488" height="132" alt="image" src="https://github.com/user-attachments/assets/c14d6f7a-4a14-4b26-ab8c-7d7db81d84fa" />
 
-![Excel Screenshot 2 - Initial Weights](results/graphs/excel_screenshot_2.png)
-
-*Paste your screenshot here showing the initial weights section*
-
-**What this shows:**
-- **Yellow cells (C13, C14, C15)**: These are the starting weights W0, W1, W2
-- **CHANGE THESE** to experiment! The entire spreadsheet will recalculate!
-- Default values: W0=3, W1=3, W2=3
 
 **Try these experiments:**
 | W0 | W1 | W2 | What happens? |
@@ -106,22 +91,7 @@ The AND gate is like two light switches in a row - the light only turns ON when 
 ---
 
 ### Screenshot 3: The Learning Table (Main Section)
-
-![Excel Screenshot 3 - Learning Table](results/graphs/excel_screenshot_3.png)
-
-*Paste your screenshot here showing the main learning iterations table*
-
-**What this shows:**
-- **20 rows** of learning iterations
-- **Each row** shows one training step:
-  - **Purple columns (C-E)**: Input values x0, x1, x2
-  - **Yellow columns (G-I)**: Current weights before this step
-  - **Orange column (J)**: The dot product Z = W*X calculation
-  - **Column K**: Predicted output (0 or 1)
-  - **Column L**: Error (Actual - Predicted)
-  - **Column M**: Status (CORRECT or WRONG)
-  - **Yellow columns (N-P)**: New weights after learning
-  - **Column Q**: Visual indicator (V = correct, X = wrong)
+<img width="1423" height="585" alt="image" src="https://github.com/user-attachments/assets/34f943b8-cb0d-4fbe-8777-fa72b33ff952" />
 
 **How to read it:**
 1. Look at row 20 (iteration 1)
@@ -135,16 +105,7 @@ The AND gate is like two light switches in a row - the light only turns ON when 
 ---
 
 ### Screenshot 4: Summary Section
-
-![Excel Screenshot 4 - Summary](results/graphs/excel_screenshot_4.png)
-
-*Paste your screenshot here showing the summary section at the bottom*
-
-**What this shows:**
-- **Total iterations**: 20
-- **Correct count** (green): How many times the perceptron got it right
-- **Wrong count** (red): How many mistakes were made
-- **Final weights**: The learned W0, W1, W2 values after training
+<img width="538" height="134" alt="image" src="https://github.com/user-attachments/assets/9be725f2-4dcd-4452-8266-f7673507c5ae" />
 
 ---
 
